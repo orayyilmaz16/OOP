@@ -1,5 +1,5 @@
-class Product:
-    def __init__(self,name="Default", price=0, quantity=1):
+class Product(object):
+    def __init__(self,name="Default", price=0, quantity=1) -> None:
         print(f"An istance with name: {name} has been derived to {quantity} from price: {price} Product class.")
         self.__name = name
         self.__price = price
@@ -18,7 +18,7 @@ class Product:
         return self.__quantity
     
     @name.setter
-    def name(self, value):
+    def name(self, value:str) -> None:
         self.__name = value
     
     @price.setter
@@ -29,30 +29,20 @@ class Product:
     def quantity(self, value):
         self.__quantity = value
    
-    def get_total_price(self):
-        return self.__price * self.__quantity
+    def get_total_price(self) -> float:
+        return self.__price * self.quantity
 
-
+    def __repr__(self):
+        return f"{self.__name} - {self.__price} - {self.__quantity}"
 
 item1 = Product("Laptop",799.90,2)
 item1.name = "HP Laptop"
-print(item1.name)
-print(item1.price)
-print(item1.quantity)
-print(item1.get_total_price())
+print(item1)
 
-item2 = Product()
-
-item2.__name = "Computer"
+item2 = Product("Computer")
 item2.__price = 1999.99
 item2.__quantity = 3
-
-print(item2.name)
-print(item2.price)
-print(item2.quantity)
-print("\n")
+print(item2)
 
 item3 = Product("Keyboard",25.99)
-print(item3.name)
-print(item3.price)
-print(item3.quantity)
+print(item3)

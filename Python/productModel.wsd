@@ -2,18 +2,29 @@
 
  title Product Model
  class Product{
-       -name
-       -price 
-       -quantity
-       
-       +getName()
-       +getPrice()
-       +getQuantity()
+       -name:string
+       -price:float
+       -quantity:int
+       --
+       +getName():string
+       +getPrice():float
+       +getQuantity():int
+       --
+       +setName(value:string)
+       +setPrice(value:float)
+       +setQuantity(value:int)
+       --
+       +Product(name:string, price:float, quantity: int)
+       --
+       +getTotalPrice():float
+ }
 
-       +setName()
-       +setPrice()
-       +setQuantity()
+class Object{
+      toString():string
+}
 
-       +Product(name, price, quantity)
- }    
+ Product -up-|> Object : "<<extends>>"
+
+ hide empty members      
+
 @enduml
